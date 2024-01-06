@@ -21,11 +21,12 @@ class TicketBuy(Resource):
 
         if 1 < data['ticket_key'] <= 1000 and user.balance >= TICKET_AMOUNT and data['ticket_key'] not in TicketModel.get_ticket_key_all():
             if TicketModel.create_ticket(data['ticket_key'], user.id):
-                user.balance -= TICKET_AMOUNT
-                user.save_db()
+                # user.balance -= TICKET_AMOUNT
+                # user.save_db()
                 return {'message': 'успешно поплнили арсенал билетов'}, 200
             else:
-                user.save_db()
+                # user.balance -= TICKET_AMOUNT
+                # user.save_db()
                 return {'message': 'вы успешно купили билет'}, 200
 
         return {'message': 'ошибка!!!'}, 402
