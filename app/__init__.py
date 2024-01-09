@@ -38,17 +38,7 @@ with app.app_context():
     db.create_all()
 
 
-from app.resources import (
-    UserLogin,
-    UserRegister,
-    UserLogout,
-    User,
-    TokenRefresh,
-    Ticket,
-    TicketBuy,
-    TicketWin
-)
-
+from app.resources import *
 #user
 api.add_resource(UserRegister, '/register')
 api.add_resource(UserLogin, '/login')
